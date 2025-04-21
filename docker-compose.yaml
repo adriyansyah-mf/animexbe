@@ -1,0 +1,50 @@
+version: '3.12'
+
+services:
+  db:
+    image: postgres:16
+    restart: always
+    container_name: postgres_db
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: scrapers
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      retries: 5
+
+  init-db:
+    build: .
+    container_name: init_db
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB: postgresql+asyncpg://postgres:nkjghghghghhaqweqeu987676@db:5432/scrapers
+    command: >
+      bash -c "poetry run python -m migrations.create_table &&
+               poetry run python -m migrations.create_admin"
+    restart: "no"  # Supaya init-db cuma jalan sekali
+
+  app:
+    build: .
+    restart: always
+    container_name: fastapi_app
+    depends_on:
+      db:
+        condition: service_healthy
+      init-db:
+        condition: service_completed_successfully
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    command: [ "poetry", "run", "uvicorn", "api.app:app", "--host", "0.0.0.0", "--port", "8000" ]
+
+volumes:
+  postgres_data:

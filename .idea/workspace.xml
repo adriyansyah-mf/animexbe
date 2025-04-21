@@ -4,45 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed732791-fd78-4e13-9488-b0cfcf33431c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/film.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/depends/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/depends/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/routers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/routers/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/routers/user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facades/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facades/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helpers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helpers/authentication.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helpers/general.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helpers/token_maker.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/create_admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/create_table.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/animes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/crawler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/admin.py" afterDir="false" />
-    </list>
+    <list default="true" id="ed732791-fd78-4e13-9488-b0cfcf33431c" name="Changes" comment="Animex" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "adriyansyah-mf"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/adriyansyah-mf/animexbe.git",
+    "accountId": "e890ceb0-e6c7-4182-920d-0c1569223393"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -209,12 +183,25 @@
       <workItem from="1745144568123" duration="3250000" />
       <workItem from="1745155438336" duration="7896000" />
       <workItem from="1745206440213" duration="6740000" />
-      <workItem from="1745231463999" duration="2695000" />
+      <workItem from="1745231463999" duration="3380000" />
     </task>
+    <task id="LOCAL-00001" summary="Animex">
+      <option name="closed" value="true" />
+      <created>1745252567281</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745252567281</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Animex" />
+    <option name="LAST_COMMIT_MESSAGE" value="Animex" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/film$create_admin.coverage" NAME="create_admin Coverage Results" MODIFIED="1745157450712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/migrations" />

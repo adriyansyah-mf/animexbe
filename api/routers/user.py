@@ -12,7 +12,7 @@ from exceptions import AdminPasswordError, AdminIsNotLoginError
 from facades.admin import Admin
 from helpers.authentication import BasicSalt, PasswordHasher
 from schemas.admin import AdminLoginSchema, SettingsSiteSchema, AddCrawlersSchema, AnimeBase, FilterAnime
-from services.admin import AdminCRUD
+from facades.admin import AdminCRUD
 
 router = APIRouter(prefix='/user', tags=["User"])
 

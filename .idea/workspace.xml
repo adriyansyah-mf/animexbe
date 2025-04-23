@@ -7,7 +7,8 @@
     <list default="true" id="ed732791-fd78-4e13-9488-b0cfcf33431c" name="Changes" comment="Animex">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routers/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/routers/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,18 +28,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "adriyansyah-mf"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;adriyansyah-mf&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/adriyansyah-mf/animexbe.git",
-    "accountId": "e890ceb0-e6c7-4182-920d-0c1569223393"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/adriyansyah-mf/animexbe.git&quot;,
+    &quot;accountId&quot;: &quot;e890ceb0-e6c7-4182-920d-0c1569223393&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -187,7 +188,8 @@
       <workItem from="1745144568123" duration="3250000" />
       <workItem from="1745155438336" duration="7896000" />
       <workItem from="1745206440213" duration="6740000" />
-      <workItem from="1745231463999" duration="4522000" />
+      <workItem from="1745231463999" duration="5655000" />
+      <workItem from="1745422838941" duration="1044000" />
     </task>
     <task id="LOCAL-00001" summary="Animex">
       <option name="closed" value="true" />
@@ -205,7 +207,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745254789094</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Animex">
+      <option name="closed" value="true" />
+      <created>1745255241756</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745255241756</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Animex">
+      <option name="closed" value="true" />
+      <created>1745255304438</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745255304438</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +235,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/film$create_admin.coverage" NAME="create_admin Coverage Results" MODIFIED="1745157450712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/migrations" />
-    <SUITE FILE_PATH="coverage/film$app.coverage" NAME="app Coverage Results" MODIFIED="1745231472777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/film$app.coverage" NAME="app Coverage Results" MODIFIED="1745425642881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/film$create_table.coverage" NAME="create_table Coverage Results" MODIFIED="1745157447178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/migrations" />
   </component>
 </project>

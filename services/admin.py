@@ -325,7 +325,8 @@ class AdminCRUD:
         )
 
         query = query.order_by(
-            desc(func.to_date(AnimesModel.c.released_year, 'Month DD, YYYY'))
+            desc(func.coalesce(AnimesModel.c.released_year, '0000')),
+            desc(AnimesModel.c.id)
         )
 
         total = (await self.conn.execute(query_total)).scalar()

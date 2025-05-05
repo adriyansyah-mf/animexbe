@@ -7,7 +7,6 @@
     <list default="true" id="ed732791-fd78-4e13-9488-b0cfcf33431c" name="Changes" comment="Animex">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/create_admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/create_admin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,6 +188,8 @@
       <workItem from="1745206440213" duration="6740000" />
       <workItem from="1745231463999" duration="5655000" />
       <workItem from="1745422838941" duration="1719000" />
+      <workItem from="1745756230114" duration="1211000" />
+      <workItem from="1746419939424" duration="606000" />
     </task>
     <task id="LOCAL-00001" summary="Animex">
       <option name="closed" value="true" />

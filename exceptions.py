@@ -35,3 +35,29 @@ class AdminIsNotLoginError(Exception):
         regarding the login error.
     :type message: str
     """
+
+
+class UserAlreadyExistsError(Exception):
+    """
+    Represents an exception that is raised when a user already exists.
+
+    This exception is intended to be used in scenarios where operations require
+    the presence of a specific user, but the provided identifier does
+    not match any existing user. It facilitates handling such errors uniquely.
+    """
+
+class UserNotFoundError(Exception):
+    """
+    Represents an exception that is raised when a user is not found.
+
+    This exception is intended to be used in scenarios where operations require
+    the presence of a specific user, but the provided identifier does
+    not match any existing user. It facilitates handling such errors uniquely.
+    """
+
+class UserPasswordError(Exception):
+    """
+    Represents an exception that is raised when a user password is incorrect.
+    """
+
+

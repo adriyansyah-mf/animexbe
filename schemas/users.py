@@ -18,6 +18,22 @@ class UserUpdateSchema(BaseModel):
     password: str
 
 
+class UserProfileSchema(BaseModel):
+    id: int
+    email: str
+    uuid: str
+    created_at: int
+
+
+class UserUpdateProfileSchema(BaseModel):
+    email: str
+
+
+class UserChangePasswordSchema(BaseModel):
+    current_password: str
+    new_password: str
+
+
 class AddBookmarkSchema(BaseModel):
     content_id: int
     url: str

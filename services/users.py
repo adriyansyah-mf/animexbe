@@ -80,6 +80,63 @@ class UserService:
 
         return result
     
+    async def get_user_by_id(self, user_id: int):
+        """Get user profile by ID"""
+        query = (
+            select(
+                UserModel
+            ).where(
+                UserModel.c.id == user_id
+            )
+        )
+
+        result = (await self.conn.execute(query)).first()
+
+        return result
+    
+    async def update_user_profile(self, user_id: int, email: str) -> bool:
+        """Update user profile information"""
+        query = UserModel.update().values(
+            email=email
+        ).where(
+            UserModel.c.id == user_id
+        )
+
+        result = (await self.conn.execute(query)).rowcount
+
+        return result > 0
+    
+    async def change_user_password(self, user_id: int, current_password: str, new_password: str) -> bool:
+        """Change user password with verification"""
+        # First get current user data
+        user_query = (
+            select(UserModel)
+            .where(UserModel.c.id == user_id)
+        )
+        
+        user = (await self.conn.execute(user_query)).first()
+        if not user:
+            return False
+        
+        # Verify current password
+        hasher = PasswordHasher(BasicSalt(cfg.password.salt))
+        if not hasher.verify(current_password, user.password):
+            return False
+        
+        # Hash new password
+        new_password_hash = hasher.hash(new_password)
+        
+        # Update password
+        update_query = UserModel.update().values(
+            password=new_password_hash
+        ).where(
+            UserModel.c.id == user_id
+        )
+
+        result = (await self.conn.execute(update_query)).rowcount
+
+        return result > 0
+    
     async def get_user_by_email(self, email: str) -> int:
         query = (
             select(

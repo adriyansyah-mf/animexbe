@@ -14,7 +14,7 @@ from facades.users import User
 from helpers.authentication import BasicSalt, PasswordHasher
 from schemas.admin import AdminLoginSchema, SettingsSiteSchema, AddCrawlersSchema, AnimeBase, FilterAnime
 from facades.admin import AdminCRUD
-from schemas.users import UserLoginSchema, UserRegisterSchema, AddBookmarkSchema, BookmarkResponseSchema
+from schemas.users import UserLoginSchema, UserRegisterSchema, AddBookmarkSchema, BookmarkResponseSchema, UserProfileSchema, UserUpdateProfileSchema, UserChangePasswordSchema
 
 router = APIRouter(prefix='/user', tags=["User"])
 
@@ -50,6 +50,93 @@ async def login(user: OAuth2PasswordRequestForm = Depends()):
             return await User(conn).login(user)
         except (UserPasswordError, UserNotFoundError) as e:
             raise HTTPException(status_code=400, detail="Invalid credentials")
+
+
+# User Profile Endpoints
+@router.get('/me', response_model=UserProfileSchema)
+async def get_user_profile(
+    user_auth: Tuple[str, AsyncConnection] = Depends(get_user_id)
+):
+    """Get current user's profile information"""
+    user_uuid, conn = user_auth
+    
+    try:
+        # Get user details
+        user = await User(conn).get_user_by_uuid(user_uuid)
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        profile = await User(conn).get_user_profile(user.id)
+        return profile
+        
+    except UserNotFoundError:
+        raise HTTPException(status_code=404, detail="User not found")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Failed to get user profile")
+
+
+@router.put('/me', response_model=dict)
+async def update_user_profile(
+    profile_data: UserUpdateProfileSchema,
+    user_auth: Tuple[str, AsyncConnection] = Depends(get_user_id)
+):
+    """Update current user's profile information"""
+    user_uuid, conn = user_auth
+    
+    try:
+        # Get user details
+        user = await User(conn).get_user_by_uuid(user_uuid)
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        # Check if email is already taken by another user
+        existing_user = await User(conn).get_user_by_email(profile_data.email)
+        if existing_user and existing_user.id != user.id:
+            raise HTTPException(status_code=400, detail="Email already taken")
+        
+        success = await User(conn).update_user_profile(user.id, profile_data)
+        
+        if not success:
+            raise HTTPException(status_code=500, detail="Failed to update profile")
+        
+        return {
+            "message": "Profile updated successfully",
+            "email": profile_data.email
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Failed to update profile")
+
+
+@router.put('/me/password', response_model=dict)
+async def change_user_password(
+    password_data: UserChangePasswordSchema,
+    user_auth: Tuple[str, AsyncConnection] = Depends(get_user_id)
+):
+    """Change current user's password"""
+    user_uuid, conn = user_auth
+    
+    try:
+        # Get user details
+        user = await User(conn).get_user_by_uuid(user_uuid)
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        success = await User(conn).change_user_password(user.id, password_data)
+        
+        if not success:
+            raise HTTPException(status_code=400, detail="Invalid current password")
+        
+        return {
+            "message": "Password changed successfully"
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Failed to change password")
 
 
 # Bookmark Endpoints

@@ -129,3 +129,13 @@ class DetailAnimeResponseSchema:
     episodes: Optional[Union[List[dict], dict]] = None
     genres: Optional[List[str]] = None
 
+
+
+class AddCrawlerSettingsSchema(BaseModel):
+    name: str
+    url: str
+
+class CrawlerSettingsResponseSchema(BaseModel):
+    id: int
+    name: str
+    url: str

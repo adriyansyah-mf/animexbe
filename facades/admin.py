@@ -1,3 +1,4 @@
+from typing import List
 import attrs
 from sqlalchemy.ext.asyncio import AsyncConnection
 
@@ -5,7 +6,7 @@ from api.config import cfg
 from exceptions import AdminPasswordError
 from helpers.authentication import PasswordHasher
 from helpers.token_maker import TokenMaker
-from schemas.admin import AdminLoginSchema, AdminMeResponseSchema, SettingsSiteSchema, AddCrawlersSchema, AnimeBase, \
+from schemas.admin import AddCrawlerSettingsSchema, AdminLoginSchema, AdminMeResponseSchema, CrawlerSettingsResponseSchema, SettingsSiteSchema, AddCrawlersSchema, AnimeBase, \
     FilterAnime
 from services.admin import AdminCRUD
 
@@ -73,3 +74,18 @@ class Admin:
 
     async def detail_anime(self, anime_id: int ):
         return await AdminCRUD(self.conn).detail_anime(anime_id)
+    
+    async def add_crawler_settings(self, data: AddCrawlerSettingsSchema) -> bool:
+        return await AdminCRUD(self.conn).add_crawler_settings(data)
+    
+    async def listing_crawler_settings(self) -> List[CrawlerSettingsResponseSchema]:
+        return await AdminCRUD(self.conn).listing_crawler_settings()
+    
+    async def update_crawler_settings(self, data: CrawlerSettingsResponseSchema) -> bool:
+        return await AdminCRUD(self.conn).update_crawler_settings(data)
+    
+    async def get_url_for_crawler(self, apikey: str, crawler_name: str) -> str:
+        return await AdminCRUD(self.conn).get_url_for_crawler(apikey, crawler_name)
+    
+    async def delete_crawler_settings(self, crawler_id: int) -> bool:
+        return await AdminCRUD(self.conn).delete_crawler_settings(crawler_id)

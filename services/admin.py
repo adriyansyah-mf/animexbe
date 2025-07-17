@@ -13,7 +13,8 @@ from helpers.authentication import PasswordHasher
 from models.admin import AdminModel
 from models.animes import AnimesModel
 from models.crawler import CrawlersModel
-from schemas.admin import AdminLoginSchema, AdminMeResponseSchema, SettingsSiteSchema, AdminSettingsResponseSchema, \
+from models.crawler_settings import CrawelerSetting
+from schemas.admin import AddCrawlerSettingsSchema, AdminLoginSchema, AdminMeResponseSchema, CrawlerSettingsResponseSchema, SettingsSiteSchema, AdminSettingsResponseSchema, \
     AddCrawlersSchema, ListingCrawlersSchema, AnimeBase, GeneralListingResponse, FilterAnime, ListingAnimeBase, \
     DetailAnimeResponseSchema
 from models.settings import SiteSettingsModel
@@ -396,8 +397,81 @@ class AdminCRUD:
             banner=data.banner,
             sinopsis=data.sinopsis,
         )
+    
+
+    async def add_crawler_settings(self, data: AddCrawlerSettingsSchema) -> bool:
+         """
+         Method for add crawler settings
+         :param data:
+         :return:
+         """
+         query = CrawelerSetting.insert().values(
+             name=data.name,
+             url=data.url,
+         )
+         await self.conn.execute(query)
+         return True
+    
+
+    async def listing_crawler_settings(self) -> List[CrawlerSettingsResponseSchema]:
+        """
+        Method for listing crawler settings
+        :return:
+        """
+        query = (
+            select(
+                CrawelerSetting.c.id,
+                CrawelerSetting.c.name,
+                CrawelerSetting.c.url,
+            ).select_from(
+                CrawelerSetting
+            )
+        )
+
+        result = (await self.conn.execute(query)).fetchall()
+        return [
+            CrawlerSettingsResponseSchema(
+                id=row.id,
+                name=row.name,
+                url=row.url,
+            ) for row in result
+        ]
 
 
+    async def update_crawler_settings(self, data: CrawlerSettingsResponseSchema) -> bool:
+        """
+        Method for update crawler settings
+        :param data:
+        :return:
+        """
+        query = CrawelerSetting.update().where(CrawelerSetting.c.id == data.id).values(name=data.name, url=data.url)
+        await self.conn.execute(query)
+        return True
+    
+
+    async def get_url_for_crawler(self, apikey: str, crawler_name: str) -> str:
+        """
+        Method for get url for crawler
+        :param crawler_name:
+        :return:
+        """
+        if not await self._check_apikey(apikey):
+            raise AdminIsNotLoginError
+        
+        query = select(CrawelerSetting.c.url).where(CrawelerSetting.c.name == crawler_name)
+
+        result = (await self.conn.execute(query)).first()
+        return result.url if result else None
+    
+    async def delete_crawler_settings(self, crawler_id: int) -> bool:
+        """
+        Method for delete crawler settings
+        :param crawler_id:
+        :return:
+        """
+        query = CrawelerSetting.delete().where(CrawelerSetting.c.id == crawler_id)
+        await self.conn.execute(query)
+        return True
 
 
 

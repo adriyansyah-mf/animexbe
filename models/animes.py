@@ -9,7 +9,6 @@ AnimesModel = Table(
     'animes', meta,
     Column('id', BigInteger, primary_key=True, autoincrement=True),
     Column('uuid', UUID(as_uuid=True), default=uuid.uuid4, unique=True, nullable=False),
-
     Column('title', Unicode(255), nullable=False),
     Column('status', String(50), nullable=True),
     Column('studio', Unicode(100), nullable=True),

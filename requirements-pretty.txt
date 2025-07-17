@@ -1,0 +1,12 @@
+# Requirements for the Pretty Edition of Otakudesu Scraper
+# Install with: pip install -r requirements-pretty.txt
+
+# Core dependencies
+requests>=2.28.0
+beautifulsoup4>=4.11.0
+
+# For beautiful console output
+rich>=13.0.0
+
+# Optional: For better HTML parsing
+lxml>=4.9.0 

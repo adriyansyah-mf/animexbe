@@ -10,7 +10,7 @@ from core.db import engine
 from exceptions import AdminPasswordError, AdminIsNotLoginError
 from facades.admin import Admin
 from helpers.authentication import BasicSalt, PasswordHasher
-from schemas.admin import AdminLoginSchema, SettingsSiteSchema, AddCrawlersSchema, AnimeBase
+from schemas.admin import AddCrawlerSettingsSchema, AdminLoginSchema, CrawlerSettingsResponseSchema, SettingsSiteSchema, AddCrawlersSchema, AnimeBase
 
 router = APIRouter(prefix='/admin', tags=["Admin"])
 
@@ -82,6 +82,38 @@ async def add_or_update_anime(api_key: str, data: AnimeBase):
             return await Admin(conn).add_or_update_anime(api_key, data)
         except AdminIsNotLoginError:
             raise HTTPException(401, detail="Admin is not login")
+        
+@router.post("/add-crawler-settings")
+async def add_crawler_settings(data: AddCrawlerSettingsSchema, admin_conn: Tuple[int, AsyncConnection] = Depends(get_id)):
+    admin_id, conn = admin_conn
+    try:
+        return await Admin(conn).add_crawler_settings(data)
+    except AdminIsNotLoginError:
+        raise HTTPException(401, detail="Admin is not login")
+    
+@router.get("/listing-crawler-settings")
+async def listing_crawler_settings(admin_conn: Tuple[int, AsyncConnection] = Depends(get_id)):
+    admin_id, conn = admin_conn
+    return await Admin(conn).listing_crawler_settings()
+
+@router.patch("/update-crawler-settings")
+async def update_crawler_settings(data: CrawlerSettingsResponseSchema, admin_conn: Tuple[int, AsyncConnection] = Depends(get_id)):
+    admin_id, conn = admin_conn
+    return await Admin(conn).update_crawler_settings(data)
+
+@router.get("/get-url-for-crawler")
+async def get_url_for_crawler(apikey:str, crawler_name: str):
+    async with engine.begin() as conn:
+        return await Admin(conn).get_url_for_crawler(apikey, crawler_name)
+    
+@router.delete("/delete-crawler-settings")
+async def delete_crawler_settings(crawler_id: int, admin_conn: Tuple[int, AsyncConnection] = Depends(get_id)):
+    admin_id, conn = admin_conn
+    return await Admin(conn).delete_crawler_settings(crawler_id)
+
+
+
+
 
 
 

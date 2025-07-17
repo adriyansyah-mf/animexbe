@@ -1,0 +1,31 @@
+2025-07-15 11:59:07,006 - __main__ - INFO - Starting Otakudesu crawler...
+2025-07-15 11:59:07,492 - __main__ - INFO - Crawler registered successfully with IP: 103.204.15.254
+2025-07-15 11:59:07,501 - __main__ - INFO - Retrieved target URL: https://otakudesu.cloud/anime-list/
+2025-07-15 11:59:07,501 - __main__ - INFO - Fetching anime list from: https://otakudesu.cloud/anime-list/
+2025-07-15 11:59:09,279 - __main__ - INFO - Found 1668 anime links
+2025-07-15 11:59:09,279 - __main__ - INFO - Processing 1668 anime...
+2025-07-15 11:59:09,279 - __main__ - INFO - [1/1668] Processing: https://otakudesu.cloud/anime/compass-20-sub-indo/
+2025-07-15 11:59:12,649 - __main__ - WARNING - Could not parse release date: Apr 08, 2025
+2025-07-15 11:59:12,658 - __main__ - INFO - Successfully submitted: #Compass 2.0: Sentou Setsuri Kaiseki System
+2025-07-15 11:59:12,658 - __main__ - INFO - [2/1668] Processing: https://otakudesu.cloud/anime/100-man-no-inochi-sub-indo/
+2025-07-15 11:59:18,605 - __main__ - WARNING - Could not parse release date: Oct 2, 2020
+2025-07-15 11:59:18,616 - __main__ - INFO - Successfully submitted: 100-man no Inochi no Ue ni Ore wa Tatteiru
+2025-07-15 11:59:18,616 - __main__ - INFO - [3/1668] Processing: https://otakudesu.cloud/anime/100-man-no-inochi-s2-sub-indo/
+2025-07-15 11:59:25,611 - __main__ - WARNING - Could not parse release date: Jul 10, 2021
+2025-07-15 11:59:25,619 - __main__ - INFO - Successfully submitted: 100-man no Inochi no Ue ni Ore wa Tatteiru Season 2
+2025-07-15 11:59:25,620 - __main__ - INFO - [4/1668] Processing: https://otakudesu.cloud/anime/1eye-subtitle-indonesia/
+2025-07-15 11:59:33,431 - __main__ - WARNING - Could not parse release date: Oct 7, 2009 sampai Dec 23, 2009
+2025-07-15 11:59:33,440 - __main__ - INFO - Successfully submitted: 11eyes
+2025-07-15 11:59:33,440 - __main__ - INFO - [5/1668] Processing: https://otakudesu.cloud/anime/12-sai-chicchana-mune-no-tokimeki/
+2025-07-15 11:59:41,231 - __main__ - WARNING - Could not parse release date: Apr 4, 2016 sampai Jun 20, 2016
+2025-07-15 11:59:41,240 - __main__ - INFO - Successfully submitted: 12-sai.: Chicchana Mune no Tokimeki
+2025-07-15 11:59:41,240 - __main__ - INFO - [6/1668] Processing: https://otakudesu.cloud/anime/16bit-layer-sub-indo/
+2025-07-15 11:59:48,300 - __main__ - WARNING - Could not parse release date: Okt 05, 2023
+2025-07-15 11:59:48,314 - __main__ - INFO - Successfully submitted: 16bit Sensation: Another Layer
+2025-07-15 11:59:48,314 - __main__ - INFO - [7/1668] Processing: https://otakudesu.cloud/anime/seiin-koukou-danshi-volley-sub-indo/
+2025-07-15 11:59:51,947 - __main__ - WARNING - Could not parse release date: Jan 8, 2021
+2025-07-15 11:59:51,955 - __main__ - INFO - Successfully submitted: 2.43: Seiin Koukou Danshi Volley-bu
+2025-07-15 11:59:51,955 - __main__ - INFO - [8/1668] Processing: https://otakudesu.cloud/anime/2-5-jigen-sub-indo/
+2025-07-15 11:59:59,645 - __main__ - WARNING - Could not parse release date: Jul 05, 2024
+2025-07-15 11:59:59,648 - __main__ - ERROR - Failed to submit anime data: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /admin/add-anime?api_key=8dAP8EZzcnM_OSHonT30WQr9RnO9AnvjtP4EFJaSYXc (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f6683c76590>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-07-15 11:59:59,649 - __main__ - ERROR - Unexpected error: 'NoneType' object has no attribute 'text'
